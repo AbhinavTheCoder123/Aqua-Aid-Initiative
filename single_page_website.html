@@ -1,0 +1,144 @@
+<!-- Single-file responsive website template
+     Replace text, images, and colors to match your topic.
+     Languages used: HTML, CSS, JavaScript (all in this single file).
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Topic Site — Replace with your topic</title>
+  <meta name="description" content="A small, fast single-page site template you can edit." />
+  <style>
+    :root{
+      --bg:#0f1724; --card:#111827; --accent:#06b6d4; --muted:#9ca3af; --glass: rgba(255,255,255,0.04);
+      --maxw:1100px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:#e6eef6;background:linear-gradient(180deg,var(--bg),#071028);-webkit-font-smoothing:antialiased}
+    .wrap{max-width:var(--maxw);margin:40px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
+    h1{margin:0;font-size:28px}
+    nav a{color:var(--muted);text-decoration:none;margin-left:14px}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:28px;align-items:center}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:20px;box-shadow:0 6px 24px rgba(2,6,23,0.6);backdrop-filter: blur(6px)}
+    .lead{color:#d8f3ff;font-size:18px;line-height:1.45}
+    .cta{display:inline-block;margin-top:16px;padding:10px 14px;border-radius:10px;background:var(--accent);color:#042430;text-decoration:none;font-weight:600}
+
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+    .feature{padding:14px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.02)}
+    .muted{color:var(--muted)}
+
+    .gallery{display:flex;gap:12px;margin-top:18px}
+    .thumb{flex:1;min-height:120px;border-radius:10px;background:linear-gradient(180deg,#0b1220,#071028);display:flex;align-items:center;justify-content:center;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+
+    footer{margin-top:30px;text-align:center;color:var(--muted);font-size:14px}
+
+    /* contact form */
+    form{display:grid;gap:10px}
+    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    button{padding:10px;border-radius:8px;border:0;background:var(--accent);font-weight:600}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .brand h1{font-size:18px}
+    }
+    @media (max-width:560px){
+      .features{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">YT</div>
+        <div>
+          <h1 id="site-title">Your Topic Title</h1>
+          <div class="muted">Short tagline or one-line description</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h2>Welcome — replace this with your main heading</h2>
+        <p class="lead">This is a compact single-page website template. Swap the copy and images to match your topic. Use the green button to download or host quickly.</p>
+        <a class="cta" id="downloadBtn">Download HTML</a>
+
+        <div id="about" style="margin-top:18px">
+          <h3>About</h3>
+          <p class="muted">A short paragraph about the project or topic. Keep it concise and friendly.</p>
+        </div>
+
+        <div id="features" style="margin-top:12px">
+          <h3>Features</h3>
+          <div class="features">
+            <div class="feature"><strong>Easy to edit</strong><div class="muted">Single HTML file — edit with any text editor.</div></div>
+            <div class="feature"><strong>Responsive</strong><div class="muted">Looks good on phones and desktops.</div></div>
+            <div class="feature"><strong>No frameworks</strong><div class="muted">Plain HTML/CSS/JS — fast to load.</div></div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside>
+        <div class="card">
+          <h3>Quick gallery</h3>
+          <div class="gallery">
+            <div class="thumb">Image 1</div>
+            <div class="thumb">Image 2</div>
+            <div class="thumb">Image 3</div>
+          </div>
+
+          <div style="margin-top:12px">
+            <h4>Contact</h4>
+            <form id="contactForm">
+              <input placeholder="Your name" required />
+              <input type="email" placeholder="Email" required />
+              <textarea placeholder="Message" rows="3"></textarea>
+              <button type="submit">Send</button>
+            </form>
+            <div id="formMsg" class="muted" style="margin-top:8px;font-size:13px"></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <div>Made with ❤️ — edit this footer to credit yourself.</div>
+      <div style="margin-top:8px">License suggestion: MIT (optional) — see chat for details.</div>
+    </footer>
+  </div>
+
+  <script>
+    // Small client-side helpers
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      document.getElementById('formMsg').textContent = 'Form not connected — copy form handler code from hosting provider or use email.';
+    });
+
+    // Download the HTML file so user can host it where they want
+    document.getElementById('downloadBtn').addEventListener('click', function(){
+      const html = '<!doctype html>' + document.documentElement.outerHTML;
+      const blob = new Blob([html], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'index.html';
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
